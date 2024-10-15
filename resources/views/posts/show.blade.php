@@ -2,15 +2,18 @@
 
 @section('content')
 <div class="container">
-    <h1 class="my-4">{{ $post->title }}</h1>
+    <h1 class="h4 mb-4">{{ $post->title }}</h1>
+    <p><strong>ID:</strong> {{ $post->id }}</p>
     <p><strong>Category:</strong> {{ $post->category->name }}</p>
     <p><strong>Author:</strong> {{ $post->author->name }}</p>
-    @if($post->image)
-        <img src="{{ asset('images/' . $post->image) }}" alt="Post Image" class="img-fluid">
-    @endif
-    <div class="mt-3">
-        {!! nl2br(e($post->content)) !!}
+    <p><strong>Status:</strong> {{ $post->is_published ? 'Published' : 'Draft' }}</p>
+    <div>
+        <strong>Content:</strong>
+        <p>{{ $post->content }}</p>
     </div>
-    <a href="{{ route('posts.index') }}" class="btn btn-secondary mt-3">Back to Posts</a>
+    @if($post->image)
+        <img src="{{ asset('images/' . $post->image) }}" alt="Post Image" class="img-fluid mb-3">
+    @endif
+    <a href="{{ route('posts.index') }}" class="btn btn-secondary">Back to Posts</a>
 </div>
 @endsection

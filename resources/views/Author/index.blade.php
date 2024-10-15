@@ -2,36 +2,33 @@
 
 @section('content')
 <div class="container">
-    <h1 class="h4 mb-4">Categories</h1>
-    @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
+    <h1 class="h4 mb-4">Authors</h1>
     <div class="d-flex justify-content-end mb-3">
-        <a href="{{ route('categories.create') }}" class="btn btn-primary">Add Category</a>
+        <a href="{{ route('authors.create') }}" class="btn btn-primary">Add Author</a>
     </div>
-    <table class="table table-bordered">
+    <table class="table">
         <thead>
             <tr>
                 <th class="text-center">ID</th>
                 <th class="text-center">Name</th>
-                <th class="text-center">Description</th>
+                <th class="text-center">Email</th>
                 <th class="text-center">Actions</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($categories as $category)
+            @foreach($authors as $author)
                 <tr>
-                    <td class="text-center">{{ $category->id }}</td>
-                    <td class="text-center">{{ $category->name }}</td>
-                    <td class="text-center">{{ $category->description }}</td>
+                    <td class="text-center">{{ $author->id }}</td>
+                    <td class="text-center">{{ $author->name }}</td>
+                    <td class="text-center">{{ $author->email }}</td>
                     <td class="text-center">
-                        <a href="{{ route('categories.show', $category->id) }}" class="btn btn-info me-2" title="View">
+                        <a href="{{ route('authors.show', $author->id) }}" class="btn btn-info me-2" title="View">
                             <i class="bi bi-eye"></i>
                         </a>
-                        <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning me-2" title="Edit">
+                        <a href="{{ route('authors.edit', $author->id) }}" class="btn btn-warning me-2" title="Edit">
                             <i class="bi bi-pencil"></i>
                         </a>
-                        <form action="{{ route('categories.destroy', $category->id) }}" method="POST" style="display:inline;">
+                        <form action="{{ route('authors.destroy', $author->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')" title="Delete">
@@ -43,6 +40,6 @@
             @endforeach
         </tbody>
     </table>
-    {{ $categories->links() }}
+    {{ $authors->links() }}
 </div>
 @endsection

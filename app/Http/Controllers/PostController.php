@@ -27,6 +27,7 @@ class PostController extends Controller
             'content' => 'required|string',
             'category_id' => 'required|exists:categories,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'is_published' => 'required|boolean',
         ]);
 
         $postData = [
@@ -34,6 +35,7 @@ class PostController extends Controller
             'content' => $request->content,
             'category_id' => $request->category_id,
             'author_id' => auth()->id(),
+            'is_published' => $request->is_published,
         ];
 
         if ($request->hasFile('image')) {
@@ -67,6 +69,7 @@ class PostController extends Controller
             'content' => 'required|string',
             'category_id' => 'required|exists:categories,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'is_published' => 'required|boolean',
         ]);
 
         $post = Post::findOrFail($id);
@@ -74,6 +77,7 @@ class PostController extends Controller
             'title' => $request->title,
             'content' => $request->content,
             'category_id' => $request->category_id,
+            'is_published' => $request->is_published,
         ];
 
         if ($request->hasFile('image')) {
