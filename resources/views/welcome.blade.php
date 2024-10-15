@@ -15,6 +15,7 @@
 
         header {
             background-color: #0056b3;
+            opacity: 0.6;
             padding: 10px 0;
             color: #fff;
         }

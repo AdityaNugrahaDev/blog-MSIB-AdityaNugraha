@@ -9,6 +9,7 @@
     <style>
         .bg-header {
             background-color: #0056b3;
+            opacity: 0.6;
         }
         .bg-footer {
             background-color: #343a40;
