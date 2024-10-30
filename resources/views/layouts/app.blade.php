@@ -8,11 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         html, body {
-            height: 100%;
             margin: 0;
             padding: 0;
         }
-
+        
         body {
             display: flex;
             flex-direction: column;
@@ -51,7 +50,8 @@
 
         .container {
             flex-grow: 1;
-            padding-bottom: 50px;
+            padding: 1rem 2rem; 
+            padding-bottom: 70px; 
         }
 
         .card {
@@ -61,6 +61,7 @@
             border-radius: 1rem;
             background-color: white;
             padding: 1rem;
+            margin: 1rem 0; 
         }
 
         .card:hover {
@@ -87,6 +88,7 @@
         .btn-primary {
             background-color: #007bff;
             border: none;
+            padding: 0.5rem 1rem; 
         }
 
         .btn-primary:hover {
@@ -97,28 +99,58 @@
             background-color: #0056b3;
             box-shadow: none;
             color: #ffff;
-            padding: 1rem;
             text-align: center;
-            margin-top: 2rem;
+            padding: 0.5rem 0;
         }
 
         footer a {
             color: #f8f9fa;
-            margin: 1rem;
+            margin: 0 0.5rem;
             transition: color 0.3s;
             text-decoration: none;
         }
 
-        footer a:hover {
-            color: #e0f7fa;
-        }
-
         footer p {
-            margin: 0.5rem 0;
+            margin: 0.2rem 0;
         }
 
         footer .social-icons {
             margin: 0.5rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem; 
+            }
+
+            .navbar-brand {
+                font-size: 1.4rem; 
+            }
+
+            .container {
+                padding: 1rem; 
+            }
+
+            .card {
+                margin: 0.5rem 0; 
+            }
+
+            .btn-primary {
+                padding: 0.4rem 0.8rem; 
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1.2rem; 
+            }
+
+            footer a {
+                margin: 0 0.5rem; 
+            }
         }
     </style>
 </head>
