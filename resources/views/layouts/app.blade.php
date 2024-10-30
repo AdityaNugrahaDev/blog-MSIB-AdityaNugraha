@@ -9,65 +9,51 @@
     <style>
         html, body {
             height: 100%;
+            margin: 0;
+            padding: 0;
         }
 
         body {
             display: flex;
             flex-direction: column;
-            background-color: #f0f4f7;
+            background-color: #e9f7fc; /* Background color for the body */
         }
 
-        /* Navbar */
         .navbar {
-            background-color: #343a40;
-            padding: 1rem 2rem;
+            background-color: #007bff;
+            padding: 1rem 2rem; 
+            transition: background-color 0.3s;
+        }
+
+        .navbar:hover {
+            background-color: #0056b3;
         }
 
         .navbar-brand {
-            color: #f8f9fa;
+            color: #ffffff;
             font-weight: bold;
             font-size: 1.6rem;
+            transition: color 0.3s;
         }
 
         .navbar-brand:hover {
-            color: #ffffff;
+            color: #f0f4f7;
         }
 
         .nav-link {
-            color: #f8f9fa !important;
+            color: #ffffff !important;
+            transition: color 0.3s;
         }
 
         .nav-link:hover {
-            color: #007bff !important;
+            color: #f0f4f7 !important;
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            color: white;
-            height: 50vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            animation: fadeIn 1s ease-in-out;
+        .container {
+            flex-grow: 1; /* Allow the container to grow and take up space */
+            padding-bottom: 50px; /* Add space to prevent overlap with footer */
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: bold;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Card Styling */
         .card {
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
@@ -78,7 +64,7 @@
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.02);
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
         }
 
@@ -98,7 +84,6 @@
             color: #007bff;
         }
 
-        /* Button Styling */
         .btn-primary {
             background-color: #007bff;
             border: none;
@@ -108,26 +93,32 @@
             background-color: #0056b3;
         }
 
-        /* Footer */
         footer {
-            background-color: #343a40;
+            background-color: #0056b3;
+            box-shadow: none;
             color: white;
-            padding: 2rem 0;
+            padding: 1rem 0; /* Mengurangi padding vertikal */
             text-align: center;
+            margin-top: 2rem;
         }
 
         footer a {
             color: #f8f9fa;
-            margin: 0 0.5rem;
+            margin: 0 1.5rem;
             transition: color 0.3s;
+            text-decoration: none;
         }
 
         footer a:hover {
-            color: #007bff;
+            color: #e0f7fa;
         }
 
         footer p {
-            margin-bottom: 0.5rem;
+            margin: 0.5rem 0; /* Mengurangi margin vertikal */
+        }
+
+        footer .social-icons {
+            margin: 0.5rem 0; /* Mengurangi jarak margin */
         }
     </style>
 </head>
@@ -136,12 +127,17 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ route('frontend.home') }}">
-                    <i class="fas fa-blog"></i> Blog MSIB
+                    Blog MSIB
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{ route('frontend.home') }}">Home</a>
+                        </li>
+                    </ul>
                     <ul class="navbar-nav ms-auto">
                         @guest
                             <li class="nav-item">
@@ -173,13 +169,6 @@
         </nav>
     </header>
 
-    <div class="hero">
-        <div>
-            <h1>Explore Our Latest Articles</h1>
-            <p>Stay updated with the latest trends and insights in technology.</p>
-        </div>
-    </div>
-
     <div class="container mt-5">
         @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -192,17 +181,25 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
+
         @yield('content')
     </div>
 
     <footer>
-        <div class="container">
-            <p>&copy; {{ date('Y') }} Blog MSIB - Aditya Nugraha</p>
-            <div>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <div class="container text-center">
+            <p>&copy; {{ date('Y') }} Blog MSIB. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div>
+                <a href="#">Tentang</a>
+                <a href="#">Layanan</a>
+                <a href="#">Blog</a>
+                <a href="#">Kontak</a>
             </div>
         </div>
     </footer>
