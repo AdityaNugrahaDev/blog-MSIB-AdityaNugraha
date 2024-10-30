@@ -20,7 +20,7 @@
             color: #1e293b;
             transition: all 0.3s ease-in-out;
             box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-            perspective: 1000px; /* Untuk efek 3D */
+            perspective: 1000px;
         }
         #sidebar-wrapper.toggled {
             margin-left: -250px;
@@ -154,7 +154,7 @@
                     <i class="bi bi-tags me-2"></i> Categories
                 </a>
                 <a href="{{ route('posts.index') }}" class="list-group-item list-group-item-action">
-                    <i class="bi bi-file-text me-2"></i> Posts Article
+                    <i class="bi bi-file-text me-2"></i> Posts Articles
                 </a>
             </div>
         </nav>
@@ -190,7 +190,7 @@
                         </li>
                     </ul>
                     <button id="theme-toggle" class="btn btn-outline-secondary ms-3">
-                        <i class="bi bi-brightness-high"></i> <!-- Default to sun icon -->
+                        <i class="bi bi-brightness-high"></i>
                     </button>
                 </div>
             </nav>
@@ -213,15 +213,14 @@
             navbar.classList.toggle('dark');
             var footer = document.querySelector('footer');
             footer.classList.toggle('dark');
-            
-            // Change icon based on theme
+
             var icon = document.querySelector("#theme-toggle i");
             if (document.body.classList.contains("dark")) {
                 icon.classList.remove("bi-brightness-high");
-                icon.classList.add("bi-moon"); // Change to moon icon for dark mode
+                icon.classList.add("bi-moon");
             } else {
                 icon.classList.remove("bi-moon");
-                icon.classList.add("bi-brightness-high"); // Change to sun icon for light mode
+                icon.classList.add("bi-brightness-high");
             }
         });
     </script>

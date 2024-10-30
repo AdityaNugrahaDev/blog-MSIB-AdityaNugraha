@@ -16,7 +16,7 @@
         body {
             display: flex;
             flex-direction: column;
-            background-color: #e9f7fc; /* Background color for the body */
+            background-color: #e9f7fc;
         }
 
         .navbar {
@@ -50,8 +50,8 @@
         }
 
         .container {
-            flex-grow: 1; /* Allow the container to grow and take up space */
-            padding-bottom: 50px; /* Add space to prevent overlap with footer */
+            flex-grow: 1;
+            padding-bottom: 50px;
         }
 
         .card {
@@ -97,7 +97,7 @@
             background-color: #0056b3;
             box-shadow: none;
             color: white;
-            padding: 1rem 0; /* Mengurangi padding vertikal */
+            padding: 1rem 0;
             text-align: center;
             margin-top: 2rem;
         }
@@ -114,11 +114,11 @@
         }
 
         footer p {
-            margin: 0.5rem 0; /* Mengurangi margin vertikal */
+            margin: 0.5rem 0;
         }
 
         footer .social-icons {
-            margin: 0.5rem 0; /* Mengurangi jarak margin */
+            margin: 0.5rem 0;
         }
     </style>
 </head>
