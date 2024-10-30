@@ -96,15 +96,15 @@
         footer {
             background-color: #0056b3;
             box-shadow: none;
-            color: white;
-            padding: 1rem 0;
+            color: #ffff;
+            padding: 1rem;
             text-align: center;
             margin-top: 2rem;
         }
 
         footer a {
             color: #f8f9fa;
-            margin: 0 1.5rem;
+            margin: 1rem;
             transition: color 0.3s;
             text-decoration: none;
         }
@@ -168,7 +168,6 @@
             </div>
         </nav>
     </header>
-
     <div class="container mt-5">
         @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -184,10 +183,14 @@
 
         @yield('content')
     </div>
-
     <footer>
         <div class="container text-center">
-            <p>&copy; {{ date('Y') }} Blog MSIB. All rights reserved.</p>
+            <div>
+                <a href="#">Tentang</a>
+                <a href="#">Layanan</a>
+                <a href="#">Blog</a>
+                <a href="#">Kontak</a>
+            </div>
             <div class="social-icons">
                 <a href="#"><i class="fab fa-facebook"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -195,15 +198,9 @@
                 <a href="#"><i class="fab fa-linkedin"></i></a>
                 <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
-            <div>
-                <a href="#">Tentang</a>
-                <a href="#">Layanan</a>
-                <a href="#">Blog</a>
-                <a href="#">Kontak</a>
-            </div>
+            <p>&copy; {{ date('Y') }} Blog MSIB. All rights reserved.</p>
         </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 </body>
